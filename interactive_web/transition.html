@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.box-container {
+			display: flex;
+		}
+
+		.box {
+			width: 100px;
+			height: 100px;
+			border: 2px solid #000;
+			background: rgba(255, 255, 0, .7);
+			transition: all 1s cubic-bezier(0.07, 0.95, 0.96, 1.55) 2s;
+			/*box에 트렌션을 주게 되면 1s면 1초 동안 애니메이션 적용 timing funtion을 바꾸면 등속도로도 바꿀수 있다 linear 기본값은 ease 
+			좋은 것을 발견! 개발자 도구에 transition을 적용한 객체에 보면 가속도 관련 도구가 있다는 것을 오늘 처음 알았다 예를 들어 transition : all 1s cubic-bezier(0.07, 0.95, 0.96, 1.55) 이렇게 줄수 있다는 말	 width를 auto로 하면 width 에는 transition이 먹히지 않는다 그 이유는 수치를 이용한 값이 아니라고 하는데 tansition은 수치를 이용한 값에만 적용이 되는것 같다
+			*/
+		}
+
+		.box:hover {
+			/* width: 200px;
+			height: 200px; */
+			/* transform: scale(2) rotate(45deg); */
+			/* transform: skew(30deg); */
+			/* transform: translate(30px, 10px); (x축, y축) */
+			transform: scale(1.5);
+			/* transform: rotate(30deg); */
+			/* transform-origin: left top; 기준점을 왼쪽 탑으로 설정 */
+			transform-origin: 20% 50%;
+			/*여기서 볼수 있듯이 width의 기준점은 왼쪽 위가 기준점으로 적용시 왼쪽 위에서 부터 크기가 늘어나지만(늘어나면서 다른 개체를 밀어버린다), transform의 scale 같은 경우는 중간이 기준점으로 중간에서 커지는 것을 볼 수 있다.*/
+
+		}
+	</style>
+</head>
+
+<body>
+	<h1>CSS Transform</h1>
+	<!--변형에 관련된 툴 트랜스 폼 같은 경우에는 width 와 height와는 다르게 기준점을 바꿀수 있다 회전,비틀기, 3D 하드웨어 가속을 이용해서 성능이 아주 좋다 -->
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, sequi necessitatibus! Repudiandae, voluptatum!
+		Reiciendis provident vitae a rem fugiat atque dolorum quaerat nam nesciunt expedita eveniet accusantium ratione,
+		modi dolor.
+	</p>
+	<div class="box-container">
+		<div class="box">A</div>
+		<div class="box">B</div>
+		<div class="box">C</div>
+		<div class="box">D</div>
+		<div class="box">E</div>
+	</div>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, sequi necessitatibus! Repudiandae, voluptatum!
+		Reiciendis provident vitae a rem fugiat atque dolorum quaerat nam nesciunt expedita eveniet accusantium ratione,
+		modi dolor.
+	</p>
+</body>
+
+</html>
