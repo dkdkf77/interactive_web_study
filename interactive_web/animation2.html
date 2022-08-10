@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		@keyframes sample-ani {
+			0% {
+				transform: translate(0, 0);
+			}
+
+			50% {
+				background-color: red;
+				transform: translate(500px, 0);
+			}
+
+			100% {
+				transform: translate(400px, 500px);
+			}
+		}
+
+		.box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100px;
+			height: 100px;
+			border: 2px solid #000;
+			background: #fff000;
+			animation: sample-ani 3s linear forwards;
+		}
+
+		.box:hover {
+			animation-play-state: paused;
+		}
+
+		/* 애니메이션은 키프레임을 씀 키프레임은 이동에 관련된 지점을 키프레임이라고 하는데 어디든 추가를 할 수 있다 */
+		/* 타임라인은 시작은 0% 끝은 100% 중간은 50% 이런식으로 타임라인을 지정할 수 있다 */
+		/* linear은 등속도 infinite = 무한 반복 , 숫자를 넣으면 숫자 넣은 값만큼 반복 */
+		/* alternate는 왔던 방향을 되돌아가 해준다 */
+		/* forwards는 동작 마지막 부분에 머무르게 해준다 */
+		/* animation-play-state running과 paused가 있는데 running이 기본 값이며 paused를 설정 시 멈춘다 */
+	</style>
+</head>
+
+<body>
+	<h1>Animation</h1>
+	<div class="box">BOX</div>
+</body>
+
+</html>
