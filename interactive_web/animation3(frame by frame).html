@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>frame by frame</title>
+	<style>
+		body {
+			background-color: #222;
+		}
+
+		@keyframes spaceship_ani {
+
+			to {
+				background-position: -2550px 0;
+			}
+		}
+
+		/* 애니메이션으로 하면 쭉 흘러가니깐 밑에 애니메이션 속성값에 steps를 단계별로 넣어주게 한다  */
+		.spaceship {
+			width: 150px;
+			height: 150px;
+			background: url(./images/sprite_spaceship.png)no-repeat 0 0 / auto 150px;
+			animation: spaceship_ani 3s infinite steps(17);
+
+		}
+
+		/* gif를 사용안 하는 gif의 치명적인 단점, gif는 배경을 투명하게 하지 못한다 */
+	</style>
+</head>
+
+<body>
+	<div class="spaceship"></div>
+	<!-- 요즘에는 이미지 만들때 2배로 만든다고 한다
+	예를 들어서 가로 세로 150px 이면 300px로 만들어서 css같은 것으로 절반으로 
+	줄여서 표현해주면 고해상도에서도 픽셀 축적도가 높은 선명한 이미지로 표현 가능하다고 한다 -->
+</body>
+
+</html>
