@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>css 3D</title>
+	<style>
+		.world {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 80vw;
+			height: 80vh;
+			/*뷰포트 단위는 창 크기 width = 100vw height = 100vh*/
+			background: yellow;
+			perspective: 500px;
+			/*3d 효과를 주는 것 숫자가 작아질 수록 내 눈앞에 가까이 있는 느낌을 준다 시점에 따른 적용을 하려면 
+			엘러먼트인 world에 3d 효과를 주고 시점 상관 없이 card의 3d 회전이 동일 하게 주고 싶다면 card transform에 직접 주면 된다  */
+
+		}
+
+		.card {
+			position: relative;
+			width: 100px;
+			height: 150px;
+			background: red;
+			margin: 1em;
+			border-radius: 10px;
+			transition: all 1s;
+			transform: rotateY(0deg);
+			transform-style: preserve-3d;
+			/*preserve-3d는 인터넷 익스플로러 에서 적용이 되지 않는다 card의 클래스를 가진 div를 없애고 카드를 따로따로 돌려줘야 한다 front는 0 -> 180deg back은 :hover를 따로 만들어 줘서 rotate 180deg -> 360deg를 줘야한다s*/
+			transform-origin: left;
+
+			/*처음 값을 렌더링을 했을때 처음 값을 적어주는 것을 성능에 좋다고 한다*/
+
+
+			/*em = 현재 엘리먼트의 폰트사이즈를 기준 rem = 루트인 html 폰트 사이즈 기준*/
+		}
+
+		.card-side {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 1rem;
+			border-radius: .5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			-webkit-backface-visibility: hidden;
+			/*사파리용, 크롬 : -webkit , 마소 : -ms , 오페라 -o , 모질라 : -moz / 새로나온 스팩이 있으면 빠르게 적용되게끔 하는 실험용 */
+			-moz-backface-visibility: hidden;
+			backface-visibility: hidden;
+			/*접두어가 붙은 것은 윗쪽으로 올리는게 좋다. 맨 마지막에 표준 속성을 써주는게 좋다*/
+		}
+
+		.card-side-front {
+			background-color: white;
+			z-index: 1;
+		}
+
+		.card-side-back {
+			transform: rotateY(180deg);
+			background-color: red;
+
+		}
+
+		.world:hover .card {
+			transform: rotateY(-180deg);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 엘레멘트 무대 자체를 3D로 만들어 주면 rotate를 사용 안하고도 3D 효과를 줄 수 있다 -->
+	<div class="world">
+		<div class="card">
+			<div class="card-side card-side-front">F</div>
+			<div class="card-side card-side-back">B</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
